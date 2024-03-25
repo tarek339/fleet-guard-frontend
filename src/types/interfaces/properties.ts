@@ -44,3 +44,14 @@ export interface IVehicle {
   nextHU: string;
   nextSP: string;
 }
+
+export interface ITruck {
+  _id: string;
+  indicator: string;
+  brand: string;
+  type: string;
+  weight: string;
+  nextHU: string;
+  nextSP: string;
+  nextTachograph: string;
+}

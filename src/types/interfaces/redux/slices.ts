@@ -1,4 +1,4 @@
-import { ICompany, IDriver, IVehicle } from "../properties";
+import { ICompany, IDriver, ITruck, IVehicle } from "../properties";
 
 export interface HandleMenu {
   menu: boolean;
@@ -29,7 +29,7 @@ export interface HandleDriver {
 }
 
 export interface HandleTruck {
-  truck: IVehicle;
+  truck: ITruck;
 }
 
 export interface HandleTrailer {
@@ -38,7 +38,7 @@ export interface HandleTrailer {
 
 export interface HandleProperties {
   drivers: IDriver[];
-  trucks: IVehicle[];
+  trucks: ITruck[];
   trailers: IVehicle[];
 }
 

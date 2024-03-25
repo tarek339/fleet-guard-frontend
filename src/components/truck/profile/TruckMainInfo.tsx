@@ -15,6 +15,7 @@ const TruckMainInfo = () => {
       brand={truck.brand}
       type={truck.type}
       weight={truck.weight}
+      nextTachograph={truck.nextTachograph}
     />
   );
 };

@@ -12,6 +12,7 @@ const truckSlice = createSlice({
       weight: "",
       nextHU: "",
       nextSP: "",
+      nextTachograph: "",
     },
   },
   reducers: {

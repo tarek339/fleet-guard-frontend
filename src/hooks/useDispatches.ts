@@ -1,5 +1,10 @@
 import { useDispatch } from "react-redux";
-import { ICompany, IDriver, IVehicle } from "../types/interfaces/properties";
+import {
+  ICompany,
+  IDriver,
+  ITruck,
+  IVehicle,
+} from "../types/interfaces/properties";
 import { AxiosResponse } from "axios";
 import { useSelectors } from ".";
 import {
@@ -37,7 +42,7 @@ const useDispatches = () => {
 
   const dispatchDriver = (driver: IDriver) => dispatch(addDriver({ driver }));
 
-  const dispatchTruck = (truck: IVehicle) => dispatch(addTruck({ truck }));
+  const dispatchTruck = (truck: ITruck) => dispatch(addTruck({ truck }));
 
   const dispatchTrailer = (trailer: IVehicle) =>
     dispatch(addTrailer({ trailer }));
@@ -60,7 +65,7 @@ const useDispatches = () => {
   const dispatchDrivers = (drivers: IDriver[]) =>
     dispatch(addDrivers({ drivers: drivers }));
 
-  const dispatchTrucks = (trucks: IVehicle[]) =>
+  const dispatchTrucks = (trucks: ITruck[]) =>
     dispatch(addTrucks({ trucks: trucks }));
 
   const dispatchTrailers = (trailers: IVehicle[]) =>

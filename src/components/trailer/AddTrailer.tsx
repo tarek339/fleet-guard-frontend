@@ -90,7 +90,7 @@ const AddTrailer = () => {
                 formik.setFieldValue("nextSP", value);
               }}
               error={
-                formik.errors.nextHU && formik.touched.nextHU ? true : false
+                formik.errors.nextSP && formik.touched.nextSP ? true : false
               }
               errorText={errorHolder.nextSP}
             />

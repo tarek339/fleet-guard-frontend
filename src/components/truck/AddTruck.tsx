@@ -86,10 +86,31 @@ const AddTruck = () => {
             onChange={(value) => {
               formik.setFieldValue("nextSP", value);
             }}
-            error={formik.errors.nextHU && formik.touched.nextHU ? true : false}
+            error={formik.errors.nextSP && formik.touched.nextSP ? true : false}
             errorText={errorHolder.nextSP}
           />
         </FlexRow>
+
+        <DateSelector
+          name={"nextTachograph"}
+          label={"Next tachograph insp."}
+          views={["year", "month"]}
+          format={"MM.YYYY"}
+          value={
+            formik.values.nextTachograph
+              ? (dayjs(formik.values.nextTachograph) as unknown as string)
+              : null
+          }
+          onChange={(value) => {
+            formik.setFieldValue("nextTachograph", value);
+          }}
+          error={
+            formik.errors.nextTachograph && formik.touched.nextTachograph
+              ? true
+              : false
+          }
+          errorText={errorHolder.nextTachograph}
+        />
         <FormButton title={"submit"} />
       </FlexColumn>
     </form>

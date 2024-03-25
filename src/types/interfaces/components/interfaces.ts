@@ -2,7 +2,6 @@ import {
   DateValidationError,
   PickerChangeHandlerContext,
 } from "@mui/x-date-pickers";
-import { IVehicle } from "../properties";
 import { HandleTrailer, HandleTruck } from "../redux/slices";
 
 export interface IBlock {
@@ -128,7 +127,7 @@ export interface IMainInfo {
 }
 
 export interface IVehicleMainInfo {
-  dispatch: (vehicle: IVehicle) =>
+  dispatch: (vehicle: any) =>
     | {
         payload: HandleTruck | HandleTrailer;
         type: string;
@@ -141,11 +140,13 @@ export interface IVehicleMainInfo {
   brand: string;
   type: string;
   weight: string;
+  nextTachograph?: string;
 }
 
 export interface IVehicleSecondaryInfo {
   nextHU: string;
   nextSP: string;
+  nextTachograph?: string;
 }
 
 export interface IVehicleProfile {

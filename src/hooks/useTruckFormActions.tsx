@@ -19,6 +19,7 @@ const useTruckFormActions = () => {
     weight: Yup.string().required("Field is Required"),
     nextHU: Yup.string().required("Field is Required"),
     nextSP: Yup.string().required("Field is Required"),
+    nextTachograph: Yup.string().required("Field is Required"),
   });
 
   const path = window.location.pathname === `/edit-truck/${id}`;
@@ -32,6 +33,7 @@ const useTruckFormActions = () => {
       weight: path ? truck.weight : "",
       nextHU: path ? dayjs(truck.nextHU) : "",
       nextSP: path ? dayjs(truck.nextSP) : "",
+      nextTachograph: path ? dayjs(truck.nextTachograph) : "",
     },
     validationSchema,
     enableReinitialize: true,
@@ -87,6 +89,13 @@ const useTruckFormActions = () => {
     nextSP: (
       <span style={errorMessage}>
         {formik.touched.nextSP ? <span>{formik.errors.nextSP}</span> : null}
+      </span>
+    ),
+    nextTachograph: (
+      <span style={errorMessage}>
+        {formik.touched.nextTachograph ? (
+          <span>{formik.errors.nextTachograph}</span>
+        ) : null}
       </span>
     ),
   };

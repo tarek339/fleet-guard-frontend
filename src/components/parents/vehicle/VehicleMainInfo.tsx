@@ -20,6 +20,7 @@ const VehicleMainInfo = ({
   type,
   brand,
   weight,
+  nextTachograph,
 }: IVehicleMainInfo) => {
   const { openModal } = useDispatches();
   const { id } = useParams();
@@ -31,6 +32,8 @@ const VehicleMainInfo = ({
     navigate(`/${pathTo}/${id}`);
   };
 
+  const path = window.location.pathname === `/truck-profile/${id}`;
+
   const vehicleInfo = [
     {
       valid: nextHU,
@@ -38,22 +41,33 @@ const VehicleMainInfo = ({
     {
       valid: nextSP,
     },
+    {
+      valid: path ? nextTachograph : null,
+    },
   ];
 
   const leftDaysHU = differenceInDays(new Date(nextHU), new Date());
   const leftDaysSP = differenceInDays(new Date(nextSP), new Date());
+  const leftDaysTacho = differenceInDays(new Date(nextTachograph!), new Date());
 
-  const colorType =
+  const colorHU =
     leftDaysHU > 31 && leftDaysHU < 91
       ? colors.color.warning
       : leftDaysHU <= 30
       ? "#f44336"
       : colors.color.success;
 
-  const colorCode =
+  const colorSP =
     leftDaysSP > 30 && leftDaysSP < 91
       ? colors.color.warning
       : leftDaysSP <= 30
+      ? "#f44336"
+      : colors.color.success;
+
+  const colorTacho =
+    leftDaysTacho > 30 && leftDaysTacho < 91
+      ? colors.color.warning
+      : leftDaysTacho <= 30
       ? "#f44336"
       : colors.color.success;
 
@@ -93,8 +107,7 @@ const VehicleMainInfo = ({
             gap="20px"
             style={{
               paddingTop: "10px",
-            }}
-          >
+            }}>
             <CardButton title={"edit"} onClick={editTrailer} />
             <CardButton title={"delete"} onClick={openModal} />
           </FlexRow>
@@ -128,6 +141,7 @@ const VehicleMainInfo = ({
             <FlexColumn gap="15px">
               <span style={main}>Main inspection:</span>
               <span style={main}>Saftey inspection:</span>
+              <span style={main}>{path ? "Tacho inspection:" : null}</span>
             </FlexColumn>
             <FlexColumn gap="15px">
               <>
@@ -139,15 +153,20 @@ const VehicleMainInfo = ({
                       style={{
                         justifyContent: "space-between",
                         fontWeight: 400,
-                      }}
-                    >
+                      }}>
                       <span
                         style={{
                           ...main,
-                          color: index === 0 ? colorType : colorCode,
-                        }}
-                      >
-                        {dayjs(info.valid).format("MM.YYYY")}
+                          color:
+                            index === 0
+                              ? colorHU
+                              : index === 1
+                              ? colorSP
+                              : colorTacho,
+                        }}>
+                        {!path && index === 2
+                          ? null
+                          : dayjs(info.valid).format("MM.YYYY")}
                       </span>
                     </FlexRow>
                   );

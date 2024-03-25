@@ -6,7 +6,7 @@ export const CustomTextField = withStyles({
   root: {
     "& .MuiFilledInput-root": {
       border: `1px solid ${colors.input.border}`,
-      backgroundColor: "#fff",
+      backgroundColor: "transparent",
       borderRadius: "6px",
       height: "39px",
       fontSize: "16px",
@@ -19,6 +19,11 @@ export const CustomTextField = withStyles({
       border: `1px solid ${colors.color.secondary}`,
       boxShadow: `0px 0px 0px 1px ${colors.color.secondary} inset`,
       backgroundColor: "transparent",
+    },
+    "& .MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputSizeSmall": {
+      paddingBottom: "15px",
+      boxSizing: "border-box",
+      borderRadius: "6px",
     },
     "& .MuiInputLabel-root": {
       fontSize: "16px",

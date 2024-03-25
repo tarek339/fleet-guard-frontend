@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleMenu } from "../../types/interfaces/redux/slices";
+import { HandleMenu } from "../../../types/interfaces/redux/slices";
 
 const mobileMenuSlice = createSlice({
   name: "mobileMenu",

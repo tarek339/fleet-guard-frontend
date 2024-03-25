@@ -1,5 +1,5 @@
-import { header } from "../assets/themes/styles/card";
-import { form } from "../assets/themes/styles/form";
+import { header } from "../../assets/themes/styles/card";
+import { form } from "../../assets/themes/styles/form";
 import {
   Block,
   FlexColumn,
@@ -7,9 +7,9 @@ import {
   FormButton,
   Header,
   InputField,
-} from "../components";
-import withRestrictions from "../hoc/withRestrictions";
-import { useFormCompanyActions } from "../hooks";
+} from "../../components";
+import withRestrictions from "../../hoc/withRestrictions";
+import { useFormCompanyActions } from "../../hooks";
 
 const RegisterCompany = () => {
   const { formik, errorHolder } = useFormCompanyActions();
@@ -19,8 +19,7 @@ const RegisterCompany = () => {
       <Header title={"Add Company"} />
       <form
         onSubmit={formik.handleSubmit}
-        style={{ ...form, maxWidth: "450px" }}
-      >
+        style={{ ...form, maxWidth: "450px" }}>
         <span style={header}>Add new company</span>
         <FlexColumn style={{ marginTop: "17px" }} gap={"5px"}>
           <InputField
@@ -80,7 +79,7 @@ const RegisterCompany = () => {
             children={errorHolder.phone}
           />
 
-          <FlexRow gap="17px">
+          <FlexRow gap="20px">
             <FlexColumn style={{ width: "90%" }}>
               <InputField
                 name={"street"}
@@ -108,7 +107,7 @@ const RegisterCompany = () => {
               />
             </FlexColumn>
           </FlexRow>
-          <FlexRow gap="17px">
+          <FlexRow gap="20px">
             <FlexColumn>
               <InputField
                 name={"zip"}

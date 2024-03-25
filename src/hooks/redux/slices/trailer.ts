@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleTrailer } from "../../types/interfaces/redux/slices";
+import { HandleTrailer } from "../../../types/interfaces/redux/slices";
 
 const trailerSlice = createSlice({
   name: "trailer",

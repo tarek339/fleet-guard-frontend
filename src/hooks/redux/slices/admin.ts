@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IAdmin } from "../../types/interfaces/properties";
+import { IAdmin } from "../../../types/interfaces/properties";
 
 interface InitialState {
   admin: IAdmin | null;

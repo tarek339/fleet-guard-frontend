@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleModal } from "../../types/interfaces/redux/slices";
+import { HandleModal } from "../../../types/interfaces/redux/slices";
 
 const modalSlice = createSlice({
   name: "modal",

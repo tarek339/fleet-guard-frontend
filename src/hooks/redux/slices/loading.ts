@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleSpinner } from "../../types/interfaces/redux/slices";
+import { HandleSpinner } from "../../../types/interfaces/redux/slices";
 
 const loadingSlice = createSlice({
   name: "loading",

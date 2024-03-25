@@ -4,7 +4,7 @@ import "./index.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.ts";
+import { store } from "./hooks/redux/store.ts";
 
 axios.defaults.baseURL = "http://localhost:4000";
 

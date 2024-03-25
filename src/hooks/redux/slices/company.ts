@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleCompany } from "../../types/interfaces/redux/slices";
+import { HandleCompany } from "../../../types/interfaces/redux/slices";
 
 const companySlice = createSlice({
   name: "company",

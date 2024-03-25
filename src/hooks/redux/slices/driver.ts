@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleDriver } from "../../types/interfaces/redux/slices";
+import { HandleDriver } from "../../../types/interfaces/redux/slices";
 
 const driverSlice = createSlice({
   name: "driver",

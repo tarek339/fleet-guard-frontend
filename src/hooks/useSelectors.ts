@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { RootState } from "./redux/store";
 
 const useSelectors = () => {
   const sideBar = useSelector((state: RootState) => state.mobileMenu.menu);

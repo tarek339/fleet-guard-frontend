@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandleError } from "../../types/interfaces/redux/slices";
+import { HandleError } from "../../../types/interfaces/redux/slices";
 
 const errorSlice = createSlice({
   name: "error",

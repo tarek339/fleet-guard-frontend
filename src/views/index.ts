@@ -1,5 +1,5 @@
 import CompaniesListing from "./company/CompaniesListing";
-import RegisterCompany from "./RegisterCompany";
+import RegisterCompany from "./company/RegisterCompany";
 import CompanyProfile from "./company/CompanyProfile";
 import EditProfile from "./company/EditProfile";
 import VerifyEmail from "./VerifyEmail";

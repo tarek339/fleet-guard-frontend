@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IDriver, IVehicle } from "../../types/interfaces/properties";
+import { IDriver, IVehicle } from "../../../types/interfaces/properties";
 
 interface InitialState {
   drivers: IDriver[];

@@ -25,7 +25,7 @@ import {
   handleDriversNot,
   handleTrucksNot,
   handleTrailersNot,
-} from "../redux/slices";
+} from "./redux/slices";
 
 const useDispatches = () => {
   const dispatch = useDispatch();

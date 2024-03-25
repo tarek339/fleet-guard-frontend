@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { HandlePage } from "../../types/interfaces/redux/slices";
+import { HandlePage } from "../../../types/interfaces/redux/slices";
 
 const pageSlice = createSlice({
   name: "page",

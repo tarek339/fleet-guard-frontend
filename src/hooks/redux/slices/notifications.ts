@@ -3,7 +3,7 @@ import {
   HandleDriversNotification,
   HandleTrailersNotification,
   HandleTrucksNotification,
-} from "../../types/interfaces/redux/slices";
+} from "../../../types/interfaces/redux/slices";
 
 const notficicationSlice = createSlice({
   name: "notficication",

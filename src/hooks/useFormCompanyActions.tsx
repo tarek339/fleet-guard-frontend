@@ -1,9 +1,9 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import { errorMessage } from "../assets/themes/styles/form";
 import { useParams } from "react-router-dom";
 import { useDispatches, useSelectors } from ".";
+import { errorMessage } from "../assets/themes/styles";
 
 const useFormCompanyActions = () => {
   const { startLoading, dispatchCompany } = useDispatches();

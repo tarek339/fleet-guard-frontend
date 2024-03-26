@@ -7,9 +7,9 @@ import {
   InputField,
   Selector,
 } from "..";
-import { header } from "../../assets/themes/styles/card";
 import { useDriverFormActions } from "../../hooks";
 import { MenuItem } from "@mui/material";
+import { header } from "../../assets/themes/styles";
 
 const AddDriver = () => {
   const { formik, errorHolder, licenseTypes, options } = useDriverFormActions();
@@ -23,8 +23,7 @@ const AddDriver = () => {
             gap="17px"
             style={{
               paddingTop: "17px",
-            }}
-          >
+            }}>
             <InputField
               name={"firstName"}
               label={"First name"}

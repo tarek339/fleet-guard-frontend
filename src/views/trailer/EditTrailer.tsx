@@ -8,11 +8,10 @@ import {
   InputField,
 } from "../../components";
 import { useFetchProperties, useTrailerFormActions } from "../../hooks";
-import { header } from "../../assets/themes/styles/card";
 import dayjs from "dayjs";
 import { useEffect } from "react";
-import { form } from "../../assets/themes/styles/form";
 import withRestrictions from "../../hoc/withRestrictions";
+import { header, form } from "../../assets/themes/styles";
 
 const EditTrailer = () => {
   const { getTrailerProfile } = useFetchProperties();
@@ -28,8 +27,7 @@ const EditTrailer = () => {
 
       <form
         onSubmit={formik.handleSubmit}
-        style={{ ...form, maxWidth: "450px" }}
-      >
+        style={{ ...form, maxWidth: "450px" }}>
         <span style={header}>Edit data</span>
         <FlexColumn gap="5px" style={{ marginTop: "17px" }}>
           <InputField

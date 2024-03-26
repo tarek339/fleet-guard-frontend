@@ -1,8 +1,8 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import { errorMessage } from "../assets/themes/styles/form";
 import { useDispatches, useNavigation, useSelectors } from ".";
+import { errorMessage } from "../assets/themes/styles";
 
 const useFormAdminActions = () => {
   const { startLoading, dispatchAdmin } = useDispatches();

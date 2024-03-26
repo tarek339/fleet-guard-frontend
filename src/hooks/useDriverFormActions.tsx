@@ -2,9 +2,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useDispatches, useFetchProperties, useSelectors } from ".";
-import { errorMessage } from "../assets/themes/styles/form";
 import { useParams } from "react-router-dom";
 import dayjs from "dayjs";
+import { errorMessage } from "../assets/themes/styles";
 
 const useDriverFormActions = () => {
   const { startLoading, dispatchDriver } = useDispatches();
@@ -15,12 +15,6 @@ const useDriverFormActions = () => {
   const validationSchema = Yup.object({
     firstName: Yup.string().required("Field is Required"),
     lastName: Yup.string().required("Field is Required"),
-    // email: Yup.string()
-    //   .matches(
-    //     /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-    //     "Incorrect type of email"
-    //   )
-    //   .required("Field is Required"),
     phoneNumber: Yup.string()
       .matches(
         /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s/0-9]*$/g,
@@ -44,7 +38,6 @@ const useDriverFormActions = () => {
       firstName: path ? driver.firstName : "",
       lastName: path ? driver.lastName : "",
       phoneNumber: path ? driver.phoneNumber : "",
-      email: path ? driver.email : "",
       licenseNum: path ? driver.licenseNum : "",
       licenseType: path ? driver.licenseType : "",
       typeValidU: path ? dayjs(driver.typeValidU) : "",

@@ -7,7 +7,7 @@ import {
   Motion,
   Section,
 } from "..";
-import { form } from "../../assets/themes/styles/form";
+import { form } from "../../assets/themes/styles";
 import { useDispatches, useFormAdminActions } from "../../hooks";
 
 const SignIn = () => {

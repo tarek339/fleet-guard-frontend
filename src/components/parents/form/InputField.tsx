@@ -1,4 +1,4 @@
-import { CustomTextField } from "../../../assets/themes/styles/input";
+import { CustomTextField } from "../../../assets/themes/styles";
 import { IInputField } from "../../../types/interfaces/components/interfaces";
 
 const InputField = ({

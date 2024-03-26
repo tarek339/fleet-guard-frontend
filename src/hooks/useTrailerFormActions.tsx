@@ -2,9 +2,9 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useDispatches, useFetchProperties, useSelectors } from ".";
 import * as Yup from "yup";
-import { errorMessage } from "../assets/themes/styles/form";
 import { useParams } from "react-router-dom";
 import dayjs from "dayjs";
+import { errorMessage } from "../assets/themes/styles";
 
 const useTrailerFormActions = () => {
   const { startLoading, dispatchTrailer } = useDispatches();

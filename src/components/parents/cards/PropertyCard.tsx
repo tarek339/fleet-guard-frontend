@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FlexRow } from "../..";
-import { cardOnHover, header } from "../../../assets/themes/styles/card";
+import { cardOnHover, header } from "../../../assets/themes/styles";
 import { IPropertyCard } from "../../../types/interfaces/components/interfaces";
 
 const PropertyCard = ({
@@ -24,14 +24,12 @@ const PropertyCard = ({
       }
       onClick={onClick}
       onMouseEnter={() => setOnHover(true)}
-      onMouseLeave={() => setOnHover(false)}
-    >
+      onMouseLeave={() => setOnHover(false)}>
       <FlexRow
         style={{
           justifyContent: "space-between",
           alignItems: "center",
-        }}
-      >
+        }}>
         <span
           style={{
             ...header,
@@ -39,8 +37,7 @@ const PropertyCard = ({
             flexDirection: "row",
             alignItems: "center",
             gap: "10px",
-          }}
-        >
+          }}>
           {property}
         </span>
         <span style={header}>{quantity}</span>
@@ -50,8 +47,7 @@ const PropertyCard = ({
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-          }}
-        >
+          }}>
           {notification}
         </span>
       </FlexRow>

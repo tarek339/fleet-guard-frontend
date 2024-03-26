@@ -9,7 +9,7 @@ import {
 } from "../../hooks";
 import { colors } from "../../assets/themes/colors/colors";
 import dayjs from "dayjs";
-import { tableTd } from "../../assets/themes/styles/table";
+import { tableTd } from "../../assets/themes/styles";
 
 const TrucksListing = () => {
   const { fetchProperties, getSingleTruck } = useFetchProperties();
@@ -55,15 +55,13 @@ const TrucksListing = () => {
               }}
               onMouseEnter={() => handleMouseEnter(truck._id)}
               onMouseLeave={handleMouseLeave}
-              onClick={() => getSingleTruck(truck._id)}
-            >
+              onClick={() => getSingleTruck(truck._id)}>
               <td
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
                     index == trucks.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {truck.indicator}
               </td>
 
@@ -81,8 +79,7 @@ const TrucksListing = () => {
                   ...tableTd,
                   borderBottomRightRadius:
                     index == trucks.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {windowWidth >= 500
                   ? dayjs(truck.nextSP).format("DD.MM.YYYY")
                   : truck.type}

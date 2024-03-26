@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { DateSelector, FlexColumn, FlexRow, FormButton, InputField } from "..";
-import { header } from "../../assets/themes/styles/card";
 import { useTrailerFormActions } from "../../hooks";
+import { header } from "../../assets/themes/styles";
 
 const AddTrailer = () => {
   const { formik, errorHolder } = useTrailerFormActions();

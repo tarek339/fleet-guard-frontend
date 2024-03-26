@@ -1,4 +1,4 @@
-import { dividerVertical } from "../assets/themes/styles/basics";
+import { dividerVertical } from "../assets/themes/styles";
 
 const DividerVertical = () => {
   return <div style={dividerVertical}></div>;

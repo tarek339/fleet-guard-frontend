@@ -1,8 +1,7 @@
 import dayjs from "dayjs";
-import { DateSelector, FlexColumn, FlexRow, FormButton } from "..";
-import { header } from "../../assets/themes/styles/card";
+import { DateSelector, FlexColumn, FlexRow, FormButton, InputField } from "..";
 import { useTruckFormActions } from "../../hooks";
-import InputField from "../parents/form/InputField";
+import { header } from "../../assets/themes/styles";
 
 const AddTruck = () => {
   const { formik, errorHolder } = useTruckFormActions();

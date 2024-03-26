@@ -7,10 +7,9 @@ import {
   InputField,
 } from "../../components";
 import { useEffect } from "react";
-import { form } from "../../assets/themes/styles/form";
 import withRestrictions from "../../hoc/withRestrictions";
 import { useFormCompanyActions, useIDs, useSelectors } from "../../hooks";
-import { header } from "../../assets/themes/styles/card";
+import { form, header } from "../../assets/themes/styles";
 
 const EditProfile = () => {
   const { formik, errorHolder } = useFormCompanyActions();
@@ -41,8 +40,7 @@ const EditProfile = () => {
       <BackButton title={"Edit profile"} />
       <form
         onSubmit={formik.handleSubmit}
-        style={{ ...form, maxWidth: "450px" }}
-      >
+        style={{ ...form, maxWidth: "450px" }}>
         <span style={header}>Edit data</span>
         <FlexColumn style={{ marginTop: "17px" }} gap={"5px"}>
           <InputField

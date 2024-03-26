@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { colors } from "../assets/themes/colors/colors";
-import { table, tableTd, tableTh } from "../assets/themes/styles/table";
 import axios from "axios";
 import {
   useBreakPoints,
@@ -8,6 +7,7 @@ import {
   useFetchProperties,
   useNavigation,
 } from "../hooks";
+import { table, tableTh, tableTd } from "../assets/themes/styles";
 
 const headers = ["companies", "first name", "last name", "city"];
 
@@ -52,8 +52,7 @@ const Table = () => {
                       borderTopRightRadius:
                         index == headers.length - 1 ? "8px" : "0px",
                     }}
-                    key={index}
-                  >
+                    key={index}>
                     {header}
                   </th>
                 );
@@ -68,8 +67,7 @@ const Table = () => {
                     borderTopRightRadius:
                       index == headers.length - 1 ? "8px" : "0px",
                   }}
-                  key={index}
-                >
+                  key={index}>
                   {header}
                 </th>
               );
@@ -93,15 +91,13 @@ const Table = () => {
               }}
               onMouseEnter={() => handleMouseEnter(company._id)}
               onMouseLeave={handleMouseLeave}
-              onClick={() => getProfile(company._id)}
-            >
+              onClick={() => getProfile(company._id)}>
               <td
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
                     index == companies.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {company.company}
               </td>
               {windowWidth >= 500 ? (
@@ -116,8 +112,7 @@ const Table = () => {
                   ...tableTd,
                   borderBottomRightRadius:
                     index == companies.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {company.city}
               </td>
             </tr>

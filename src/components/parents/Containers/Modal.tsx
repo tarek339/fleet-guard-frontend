@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { IModal } from "../../../types/interfaces/components/interfaces";
-import { container, modalContent } from "../../../assets/themes/styles/modal";
+import { modalContent, container } from "../../../assets/themes/styles";
 
 const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
   useEffect(() => {
@@ -15,8 +15,7 @@ const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
   return (
     <div
       id="modal"
-      style={{ ...container, display: isVisible ? "flex" : "none", ...style }}
-    >
+      style={{ ...container, display: isVisible ? "flex" : "none", ...style }}>
       <div style={modalContent}>{children}</div>
     </div>
   );

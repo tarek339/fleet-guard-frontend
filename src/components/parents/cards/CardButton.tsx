@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { cardButton } from "../../../assets/themes/styles/card";
 import { colors } from "../../../assets/themes/colors/colors";
 import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import { ICardButton } from "../../../types/interfaces/components/interfaces";
+import { cardButton } from "../../../assets/themes/styles";
 
 const CardButton = ({ title, onClick }: ICardButton) => {
   const [isHovered, setisHovered] = useState(false);
@@ -27,8 +27,7 @@ const CardButton = ({ title, onClick }: ICardButton) => {
                   ? colors.backgroundColor.main
                   : colors.backgroundColor.error,
             }
-      }
-    >
+      }>
       {title}
       {title === "edit" ? (
         <MdEdit fontSize="20px" />

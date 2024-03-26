@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { formButton } from "../../../assets/themes/styles/form";
 import { IButton } from "../../../types/interfaces/components/interfaces";
 import { useDispatches, useSelectors } from "../../../hooks";
 import { BsSendPlusFill, ImSpinner8, GiCheckMark } from "../../icons/index";
 import { colors } from "../../../assets/themes/colors/colors";
+import { formButton } from "../../../assets/themes/styles";
 
 const FormButton = ({ title, onClick }: IButton) => {
   const [isHovered, setisHovered] = useState(false);
@@ -43,8 +43,7 @@ const FormButton = ({ title, onClick }: IButton) => {
           : formButton
       }
       type="submit"
-      onClick={onClick}
-    >
+      onClick={onClick}>
       {!loading && !checked ? title : null}
       {loading ? (
         <ImSpinner8

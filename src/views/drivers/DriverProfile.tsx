@@ -20,7 +20,7 @@ import {
 } from "../../components";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { card } from "../../assets/themes/styles/card";
+import { card } from "../../assets/themes/styles";
 
 const DriverProfile = () => {
   const { getDriverProfile } = useFetchProperties();

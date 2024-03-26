@@ -1,10 +1,10 @@
 import { useFormik } from "formik";
 import axios from "axios";
 import { useDispatches, useFetchProperties, useSelectors } from ".";
-import { errorMessage } from "../assets/themes/styles/form";
 import * as Yup from "yup";
 import { useParams } from "react-router-dom";
 import dayjs from "dayjs";
+import { errorMessage } from "../assets/themes/styles";
 
 const useTruckFormActions = () => {
   const { startLoading, dispatchTruck } = useDispatches();

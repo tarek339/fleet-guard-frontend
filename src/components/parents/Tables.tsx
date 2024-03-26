@@ -1,4 +1,4 @@
-import { table, tableTh } from "../../assets/themes/styles/table";
+import { table, tableTh } from "../../assets/themes/styles";
 import { useBreakPoints } from "../../hooks";
 
 interface ITable {
@@ -25,8 +25,7 @@ const Tables = ({ headers, propsChildren }: ITable) => {
                       borderTopRightRadius:
                         index === headers.length - 1 ? "8px" : "0px",
                     }}
-                    key={index}
-                  >
+                    key={index}>
                     {header}
                   </th>
                 );
@@ -41,8 +40,7 @@ const Tables = ({ headers, propsChildren }: ITable) => {
                     borderTopRightRadius:
                       index == headers.length - 1 ? "8px" : "0px",
                   }}
-                  key={index}
-                >
+                  key={index}>
                   {header}
                 </th>
               );

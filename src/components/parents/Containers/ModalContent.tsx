@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { FlexColumn, FlexRow } from "../..";
-import {
-  modalBody,
-  modalHeader,
-  modalIcon,
-} from "../../../assets/themes/styles/modal";
 import { IModalContent } from "../../../types/interfaces/components/interfaces";
 import { useState } from "react";
 import { useDispatches, useNavigation } from "../../../hooks";
 import { MdOutlineCheckCircle, MdOutlineCancel } from "../../icons/index";
+import {
+  modalBody,
+  modalHeader,
+  modalIcon,
+} from "../../../assets/themes/styles";
 
 const ModalContent = ({
   url,
@@ -42,8 +42,7 @@ const ModalContent = ({
           style={{
             ...modalIcon,
             backgroundColor: isHoveredCheckIcon ? "#388e3c" : "#22bb33",
-          }}
-        >
+          }}>
           <MdOutlineCheckCircle fontSize="32px" />
         </div>
         <div
@@ -53,8 +52,7 @@ const ModalContent = ({
           style={{
             ...modalIcon,
             backgroundColor: isHoveredCloseIcon ? "#D32F2F" : "#f44336",
-          }}
-        >
+          }}>
           <MdOutlineCancel fontSize="32px" />
         </div>
       </FlexRow>

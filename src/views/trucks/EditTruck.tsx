@@ -8,11 +8,10 @@ import {
   InputField,
 } from "../../components";
 import { useFetchProperties, useTruckFormActions } from "../../hooks";
-import { header } from "../../assets/themes/styles/card";
 import dayjs from "dayjs";
 import { useEffect } from "react";
-import { form } from "../../assets/themes/styles/form";
 import withRestrictions from "../../hoc/withRestrictions";
+import { header, form } from "../../assets/themes/styles";
 
 const EditTruck = () => {
   const { getTruckProfile } = useFetchProperties();

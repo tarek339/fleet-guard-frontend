@@ -1,5 +1,5 @@
+import { CustomTextField } from "../../../assets/themes/styles";
 import { ISelector } from "../../../types/interfaces/components/interfaces";
-import { CustomTextField } from "../../../assets/themes/styles/input";
 
 export default function Selector({
   name,
@@ -21,8 +21,7 @@ export default function Selector({
         onChange={onChange}
         error={error}
         InputProps={{ disableUnderline: true }}
-        select
-      >
+        select>
         {children}
       </CustomTextField>
       <div>{errorText}</div>

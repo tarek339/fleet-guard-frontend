@@ -10,10 +10,10 @@ import {
   InputField,
   Selector,
 } from "../../components";
-import { header } from "../../assets/themes/styles/card";
 import dayjs from "dayjs";
-import { form } from "../../assets/themes/styles/form";
 import { MenuItem } from "@mui/material";
+import withRestrictions from "../../hoc/withRestrictions";
+import { header, form } from "../../assets/themes/styles";
 
 const EditDriver = () => {
   const { formik, errorHolder, licenseTypes, options } = useDriverFormActions();
@@ -28,16 +28,14 @@ const EditDriver = () => {
       <BackButton title={"Edit Driver"} />
       <form
         onSubmit={formik.handleSubmit}
-        style={{ ...form, maxWidth: "470px" }}
-      >
+        style={{ ...form, maxWidth: "470px" }}>
         <span style={header}>Edit data</span>
         <FlexColumn gap="5px">
           <FlexRow
             gap="17px"
             style={{
               paddingTop: "17px",
-            }}
-          >
+            }}>
             <InputField
               name={"firstName"}
               label={"First name"}
@@ -212,4 +210,4 @@ const EditDriver = () => {
   );
 };
 
-export default EditDriver;
+export default withRestrictions(EditDriver);

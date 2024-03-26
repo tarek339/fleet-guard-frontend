@@ -60,6 +60,7 @@ const useDispatches = () => {
 
   const addPage = () => dispatch(handlePage({ page: page + 1 }));
   const removePage = () => dispatch(handlePage({ page: page - 1 }));
+  const resetPage = () => dispatch(handlePage({ page: 0 }));
   const changePage = (page: number) => dispatch(handlePage({ page: page }));
 
   const dispatchDrivers = (drivers: IDriver[]) =>
@@ -112,6 +113,7 @@ const useDispatches = () => {
     dispatchDrivers,
     dispatchTrailers,
     dispatchTrucks,
+    resetPage,
   };
 };
 

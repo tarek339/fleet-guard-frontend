@@ -6,7 +6,7 @@ import {
   Motion,
   Paginantion,
 } from ".";
-import { card } from "../assets/themes/styles/card";
+import { card } from "../assets/themes/styles";
 import { useSelectors } from "../hooks";
 
 const AddData = () => {

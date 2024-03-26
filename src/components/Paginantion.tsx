@@ -1,14 +1,14 @@
 import { MdArrowForwardIos } from "react-icons/md";
 import { FlexRow } from ".";
-import {
-  iconHovered,
-  pageNum,
-  paginationIcon,
-  focussed,
-  disabled,
-} from "../assets/themes/styles/pagination";
 import { useEffect, useState } from "react";
 import { useDispatches, useSelectors } from "../hooks";
+import {
+  pageNum,
+  iconHovered,
+  paginationIcon,
+  disabled,
+  focussed,
+} from "../assets/themes/styles";
 
 const pages = ["1", "2", "3"];
 
@@ -43,8 +43,7 @@ const Paginantion = () => {
         alignItems: "center",
         marginBottom: "1em",
         gap: "2em",
-      }}
-    >
+      }}>
       <div
         onMouseEnter={page !== 0 ? () => setIsHovered(true) : undefined}
         onMouseLeave={() => setIsHovered(false)}
@@ -55,8 +54,7 @@ const Paginantion = () => {
             ? { ...paginationIcon, ...disabled, transform: "rotate(180deg)" }
             : { ...paginationIcon, transform: "rotate(180deg)" }
         }
-        onClick={page !== 0 ? removePage : undefined}
-      >
+        onClick={page !== 0 ? removePage : undefined}>
         <MdArrowForwardIos fontSize="18px" />
       </div>
       <>
@@ -73,8 +71,7 @@ const Paginantion = () => {
                   ? { ...pageNum, ...focussed }
                   : pageNum
               }
-              onClick={() => changePage(i)}
-            >
+              onClick={() => changePage(i)}>
               {num}
             </span>
           );
@@ -90,8 +87,7 @@ const Paginantion = () => {
             ? { ...paginationIcon, ...disabled }
             : { ...paginationIcon }
         }
-        onClick={page !== 2 ? addPage : undefined}
-      >
+        onClick={page !== 2 ? addPage : undefined}>
         <MdArrowForwardIos fontSize="18px" />
       </div>
     </FlexRow>

@@ -3,20 +3,11 @@ import {
   PickerChangeHandlerContext,
 } from "@mui/x-date-pickers";
 import { HandleTrailer, HandleTruck } from "../redux/slices";
+import { ITruck, IVehicle } from "../properties";
 
 export interface IBlock {
   children: JSX.Element | JSX.Element[];
   style?: React.CSSProperties;
-}
-
-export interface IInput {
-  value: string | number | readonly string[];
-  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  placeholder: string;
-  name: string;
-  style?: React.CSSProperties;
-  errorCase?: boolean;
-  type: string;
 }
 
 export interface IHeader {
@@ -30,6 +21,7 @@ export interface IFlex {
   style?: React.CSSProperties;
   number: number;
 }
+
 export interface IFlexColumn {
   gap?: string;
   children: JSX.Element | JSX.Element[];
@@ -126,13 +118,25 @@ export interface IMainInfo {
   onEdit: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-export interface IVehicleMainInfo {
-  dispatch: (vehicle: any) =>
+type IDispatchTruck = {
+  (truck: ITruck):
     | {
-        payload: HandleTruck | HandleTrailer;
+        payload: HandleTruck;
         type: string;
       }
     | undefined;
+};
+type IDispatchTrailer = {
+  (vehicle: IVehicle):
+    | {
+        payload: HandleTrailer;
+        type: string;
+      }
+    | undefined;
+};
+
+export interface IVehicleMainInfo {
+  dispatch: IDispatchTruck | IDispatchTrailer;
   nextHU: string;
   nextSP: string;
   reqUrl: string;

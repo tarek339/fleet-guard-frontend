@@ -3,15 +3,15 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
 import { IDateSelecter } from "../../../types/interfaces/components/interfaces";
-import {
-  calendarHeader,
-  day,
-  desktopPaper,
-  inputStyle,
-  labelStyle,
-} from "../../../assets/themes/styles/datePicker";
 import { colors } from "../../../assets/themes/colors/colors";
 import { FlexColumn } from "../..";
+import {
+  desktopPaper,
+  calendarHeader,
+  day,
+  inputStyle,
+  labelStyle,
+} from "../../../assets/themes/styles";
 
 const DateSelector = (props: IDateSelecter) => {
   const [onFocus, setOnFocus] = useState(false);

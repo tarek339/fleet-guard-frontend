@@ -1,14 +1,14 @@
-import {
-  dividerHorizontal,
-  menuContent,
-  focusedContent,
-} from "../assets/themes/styles/navbar";
 import { Style } from "../types/interfaces/themes/breakpoints";
 import { useDispatches, useNavigation, useSelectors } from "../hooks";
+import {
+  dividerHorizontal,
+  focusedContent,
+  menuContent,
+} from "../assets/themes/styles";
 
 const MobileMenu = ({ style }: Style) => {
   const { navigate } = useNavigation();
-  const { closeSideBar, removeAdminUser } = useDispatches();
+  const { closeSideBar, removeAdminUser, resetPage } = useDispatches();
   const { admin } = useSelectors();
 
   const Listing = () => {
@@ -23,6 +23,7 @@ const MobileMenu = ({ style }: Style) => {
   const singOut = () => {
     localStorage.removeItem("token");
     removeAdminUser();
+    resetPage();
     closeSideBar();
     navigate("/");
   };
@@ -36,8 +37,7 @@ const MobileMenu = ({ style }: Style) => {
               style={
                 window.location.pathname === "/listing" ? focusedContent : {}
               }
-              onClick={Listing}
-            >
+              onClick={Listing}>
               listing
             </div>
             <div style={dividerHorizontal}></div>
@@ -47,8 +47,7 @@ const MobileMenu = ({ style }: Style) => {
                   ? focusedContent
                   : {}
               }
-              onClick={addNewComp}
-            >
+              onClick={addNewComp}>
               add company
             </div>
             <div style={dividerHorizontal}></div>
@@ -56,8 +55,7 @@ const MobileMenu = ({ style }: Style) => {
         )}
         <div
           style={window.location.pathname === "/" ? focusedContent : {}}
-          onClick={singOut}
-        >
+          onClick={singOut}>
           {admin ? "sign out" : "Authentication"}
         </div>
       </div>

@@ -1,12 +1,12 @@
 import dayjs from "dayjs";
 import { CardButton, FlexColumn, FlexRow, HeaderSmall } from "../..";
-import { main } from "../../../assets/themes/styles/card";
 import { useDispatches, useSelectors } from "../../../hooks";
 import DividerVertical from "../../DividerVertical";
 import { IMainInfo } from "../../../types/interfaces/components/interfaces";
 import { differenceInDays } from "date-fns";
 import { colors } from "../../../assets/themes/colors/colors";
 import { FaWhatsappSquare } from "../../icons/index";
+import { main } from "../../../assets/themes/styles";
 
 const MainInfo = ({ onEdit }: IMainInfo) => {
   const { driver } = useSelectors();
@@ -69,8 +69,7 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
           <span style={main}>
             <a
               className="whatsapp"
-              href={`https://wa.me/${driver.phoneNumber}`}
-            >
+              href={`https://wa.me/${driver.phoneNumber}`}>
               <FlexRow gap="5px" style={{ alignItems: "center" }}>
                 <FaWhatsappSquare />
                 <>{driver.phoneNumber}</>
@@ -86,8 +85,7 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
             gap="20px"
             style={{
               paddingTop: "10px",
-            }}
-          >
+            }}>
             <CardButton title={"edit"} onClick={onEdit} />
             <CardButton title={"delete"} onClick={openModal} />
           </FlexRow>
@@ -118,8 +116,7 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
                     style={{
                       justifyContent: "space-between",
                       fontWeight: 400,
-                    }}
-                  >
+                    }}>
                     <span
                       style={{
                         ...main,
@@ -130,8 +127,7 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
                             : index === 1
                             ? colorCode
                             : colorCard,
-                      }}
-                    >
+                      }}>
                       {info.name}
                     </span>
                     <span
@@ -143,8 +139,7 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
                             : index === 1
                             ? colorCode
                             : colorCard,
-                      }}
-                    >
+                      }}>
                       {dayjs(info.valid).format("DD.MM.YYYY")}
                     </span>
                   </FlexRow>

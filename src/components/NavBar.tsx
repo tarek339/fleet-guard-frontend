@@ -26,7 +26,8 @@ const NavBar = () => {
   const { navigate } = useNavigation();
   const { windowWidth } = useBreakPoints();
   const { sideBar, admin } = useSelectors();
-  const { closeSideBar, openSideBar, removeAdminUser } = useDispatches();
+  const { closeSideBar, openSideBar, removeAdminUser, resetPage } =
+    useDispatches();
 
   const mouseEnterHome = () => {
     setIsHoveredHome(true);
@@ -71,8 +72,7 @@ const NavBar = () => {
                   }
                   onMouseEnter={mouseEnterHome}
                   onMouseLeave={mouseLeaveHome}
-                  onClick={() => navigate("/listing")}
-                >
+                  onClick={() => navigate("/listing")}>
                   listing
                 </button>
                 <div style={divider}></div>
@@ -86,8 +86,7 @@ const NavBar = () => {
                   }
                   onMouseEnter={mouseEnterNew}
                   onMouseLeave={mouseLeaveNew}
-                  onClick={() => navigate("register-company")}
-                >
+                  onClick={() => navigate("register-company")}>
                   add company
                 </button>
                 <div style={divider}></div>
@@ -104,11 +103,11 @@ const NavBar = () => {
               onMouseEnter={mouseEnterAuth}
               onMouseLeave={mouseLeaveAuth}
               onClick={() => {
+                resetPage();
                 localStorage.removeItem("token");
                 removeAdminUser();
                 navigate("/");
-              }}
-            >
+              }}>
               {admin ? "Sign out" : "Authentication"}
             </button>
           </>

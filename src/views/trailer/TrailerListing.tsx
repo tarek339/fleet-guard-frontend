@@ -9,7 +9,7 @@ import {
 } from "../../hooks";
 import { colors } from "../../assets/themes/colors/colors";
 import dayjs from "dayjs";
-import { tableTd } from "../../assets/themes/styles/table";
+import { tableTd } from "../../assets/themes/styles";
 
 const TrailerListing = () => {
   const { fetchProperties, getSingleTrailer } = useFetchProperties();
@@ -55,15 +55,13 @@ const TrailerListing = () => {
               }}
               onMouseEnter={() => handleMouseEnter(trailer._id)}
               onMouseLeave={handleMouseLeave}
-              onClick={() => getSingleTrailer(trailer._id)}
-            >
+              onClick={() => getSingleTrailer(trailer._id)}>
               <td
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
                     index == trailers.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {trailer.indicator}
               </td>
 
@@ -81,8 +79,7 @@ const TrailerListing = () => {
                   ...tableTd,
                   borderBottomRightRadius:
                     index == trailers.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {windowWidth >= 500
                   ? dayjs(trailer.nextSP).format("DD.MM.YYYY")
                   : trailer.type}

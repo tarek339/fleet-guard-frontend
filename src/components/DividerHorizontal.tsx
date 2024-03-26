@@ -1,4 +1,4 @@
-import { dividerHorizontal } from "../assets/themes/styles/basics";
+import { dividerHorizontal } from "../assets/themes/styles";
 
 const DividerHorizontal = () => {
   return <div style={dividerHorizontal}></div>;

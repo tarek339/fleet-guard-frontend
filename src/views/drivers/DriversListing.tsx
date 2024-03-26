@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { colors } from "../../assets/themes/colors/colors";
 import dayjs from "dayjs";
-import { tableTd } from "../../assets/themes/styles/table";
+import { tableTd } from "../../assets/themes/styles";
 
 const DriversListing = () => {
   const { fetchProperties, getSingleDriver } = useFetchProperties();
@@ -57,15 +57,13 @@ const DriversListing = () => {
               }}
               onMouseEnter={() => handleMouseEnter(driver._id)}
               onMouseLeave={handleMouseLeave}
-              onClick={() => getSingleDriver(driver._id)}
-            >
+              onClick={() => getSingleDriver(driver._id)}>
               <td
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
                     index == drivers.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {driver.firstName}
               </td>
 
@@ -86,8 +84,7 @@ const DriversListing = () => {
                   ...tableTd,
                   borderBottomRightRadius:
                     index == drivers.length - 1 ? "8px" : "0px",
-                }}
-              >
+                }}>
                 {windowWidth >= 500
                   ? dayjs(driver.driverCardNumValidU).format("DD.MM.YYYY")
                   : driver.lastName}

@@ -1,5 +1,5 @@
 import { FlexColumn, HeaderSmall } from "../..";
-import { main } from "../../../assets/themes/styles/card";
+import { main } from "../../../assets/themes/styles";
 import { differenceInDays } from "date-fns";
 import { useSelectors } from "../../../hooks";
 import { colors } from "../../../assets/themes/colors/colors";
@@ -72,8 +72,7 @@ const SecondaryInfo = () => {
       <>
         {leftDaysType > 90 && leftDaysCode > 90 && leftDaysCard > 90 ? (
           <span
-            style={{ ...main, color: colors.color.success, fontWeight: 400 }}
-          >
+            style={{ ...main, color: colors.color.success, fontWeight: 400 }}>
             All documents are valid for more than 90 days.
           </span>
         ) : (
@@ -83,8 +82,7 @@ const SecondaryInfo = () => {
                 <>
                   {leftDaysType < 91 && index === 0 && (
                     <span
-                      style={{ ...main, color: colorType, fontWeight: 400 }}
-                    >
+                      style={{ ...main, color: colorType, fontWeight: 400 }}>
                       {leftDaysType > 0 && leftDaysType < 91
                         ? noti.text.main
                         : leftDaysType < 0
@@ -94,8 +92,7 @@ const SecondaryInfo = () => {
                   )}
                   {leftDaysCode < 91 && index === 1 && (
                     <span
-                      style={{ ...main, color: colorCode, fontWeight: 400 }}
-                    >
+                      style={{ ...main, color: colorCode, fontWeight: 400 }}>
                       {leftDaysCode > 0 && leftDaysCode < 91
                         ? noti.text.main
                         : leftDaysCode < 0
@@ -105,8 +102,7 @@ const SecondaryInfo = () => {
                   )}
                   {leftDaysCard < 91 && index === 2 && (
                     <span
-                      style={{ ...main, color: colorCard, fontWeight: 400 }}
-                    >
+                      style={{ ...main, color: colorCard, fontWeight: 400 }}>
                       {leftDaysCard > 0 && leftDaysCard < 91
                         ? noti.text.main
                         : leftDaysCard < 0

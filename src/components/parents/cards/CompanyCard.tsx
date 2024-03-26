@@ -1,5 +1,5 @@
 import { CardButton, FlexColumn, FlexRow } from "../..";
-import { card, header, main } from "../../../assets/themes/styles/card";
+import { card, header, main } from "../../../assets/themes/styles";
 import { useDispatches, useNavigation } from "../../../hooks";
 import { ICompanyCard } from "../../../types/interfaces/components/interfaces";
 

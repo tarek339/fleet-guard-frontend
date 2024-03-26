@@ -25,7 +25,7 @@ import { LoadingSpinner, NavBar } from "./components";
 
 function App() {
   const { dispatchAdmin, removeAdminUser } = useDispatches();
-  const { admin, adminLoading, page } = useSelectors();
+  const { admin, adminLoading } = useSelectors();
 
   const getAdmin = async () => {
     try {
@@ -39,10 +39,6 @@ function App() {
   useEffect(() => {
     getAdmin();
   }, []);
-
-  useEffect(() => {
-    console.log(page);
-  }, [page]);
 
   if (adminLoading) {
     return <LoadingSpinner />;

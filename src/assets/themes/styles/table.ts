@@ -11,6 +11,7 @@ export const table: React.CSSProperties = {
   borderBottomLeftRadius: "8px",
   borderBottomRightRadius: "8px",
   marginTop: "2em",
+  backgroundColor: "#fff",
 };
 
 export const tableTh: React.CSSProperties = {
@@ -19,6 +20,7 @@ export const tableTh: React.CSSProperties = {
   backgroundColor: colors.table.head,
   color: colors.color.main,
   fontWeight: 400,
+  borderBottom: "1px solid #000",
 };
 
 export const tableTd: React.CSSProperties = {

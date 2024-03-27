@@ -8,7 +8,7 @@ const withRestrictions = (Component: React.ComponentType) => {
 
     useEffect(() => {
       if (!admin) {
-        return navigate("/");
+        return navigate("/auth");
       }
     }, [admin]);
 

@@ -69,7 +69,7 @@ const TrailerListing = () => {
                 <>
                   <td style={tableTd}>{trailer.type}</td>
                   <td style={tableTd}>
-                    {dayjs(trailer.nextHU).format("DD.MM.YYYY")}
+                    {dayjs(trailer.nextHU).format("MM.YYYY")}
                   </td>
                 </>
               ) : null}
@@ -81,7 +81,7 @@ const TrailerListing = () => {
                     index == trailers.length - 1 ? "8px" : "0px",
                 }}>
                 {windowWidth >= 500
-                  ? dayjs(trailer.nextSP).format("DD.MM.YYYY")
+                  ? dayjs(trailer.nextSP).format("MM.YYYY")
                   : trailer.type}
               </td>
             </tr>

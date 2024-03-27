@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IDriver, IVehicle } from "../../../types/interfaces/properties";
+import {
+  IDriver,
+  ITruck,
+  IVehicle,
+} from "../../../types/interfaces/properties";
 
 interface InitialState {
   drivers: IDriver[];
-  trucks: IVehicle[];
+  trucks: ITruck[];
   trailers: IVehicle[];
 }
 

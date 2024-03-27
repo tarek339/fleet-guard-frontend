@@ -38,7 +38,8 @@ const TrucksListing = () => {
           "indicator",
           "type",
           "main inspection",
-          windowWidth >= 500 ? "saftey inspection" : "type",
+          "saftey inspection",
+          windowWidth >= 500 ? "tacho inspection" : "type",
         ]}
         propsChildren={trucks.map((truck, index) => {
           return (
@@ -69,7 +70,10 @@ const TrucksListing = () => {
                 <>
                   <td style={tableTd}>{truck.type}</td>
                   <td style={tableTd}>
-                    {dayjs(truck.nextHU).format("DD.MM.YYYY")}
+                    {dayjs(truck.nextHU).format("MM.YYYY")}
+                  </td>
+                  <td style={tableTd}>
+                    {dayjs(truck.nextSP).format("MM.YYYY")}
                   </td>
                 </>
               ) : null}
@@ -81,7 +85,7 @@ const TrucksListing = () => {
                     index == trucks.length - 1 ? "8px" : "0px",
                 }}>
                 {windowWidth >= 500
-                  ? dayjs(truck.nextSP).format("DD.MM.YYYY")
+                  ? dayjs(truck.nextTachograph).format("MM.YYYY")
                   : truck.type}
               </td>
             </tr>

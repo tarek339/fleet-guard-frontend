@@ -25,7 +25,7 @@ import { LoadingSpinner, NavBar } from "./components";
 
 function App() {
   const { dispatchAdmin, removeAdminUser } = useDispatches();
-  const { admin, adminLoading } = useSelectors();
+  const { admin, adminLoading, page } = useSelectors();
 
   const getAdmin = async () => {
     try {
@@ -38,7 +38,8 @@ function App() {
 
   useEffect(() => {
     getAdmin();
-  }, []);
+    console.log(page);
+  }, [page]);
 
   if (adminLoading) {
     return <LoadingSpinner />;
@@ -48,32 +49,30 @@ function App() {
     <>
       <NavBar />
       <AnimatePresence mode="wait">
-        <Routes>
-          {admin && admin?.emailVerified ? (
-            <>
-              <Route path="/listing" element={<CompaniesListing />} />
-              <Route path="/register-company" element={<RegisterCompany />} />
-              <Route path="/company-profile/:id" element={<CompanyProfile />} />
-              <Route path="/edit-profile/:id" element={<EditProfile />} />
-              <Route path="/trucks-listing/:id" element={<TrucksListing />} />
-              <Route path="/truck-profile/:id" element={<TruckProfile />} />
-              <Route path="/edit-truck/:id" element={<EditTruck />} />
-              <Route path="/trailer-listing/:id" element={<TrailerListing />} />
-              <Route path="/trailer-profile/:id" element={<TrailerProfile />} />
-              <Route path="/edit-trailer/:id" element={<EditTrailer />} />
-              <Route path="/drivers-listing/:id" element={<DriversListing />} />
-              <Route path="/driver-profile/:id" element={<DriverProfile />} />
-              <Route path="/edit-driver/:id" element={<EditDriver />} />
-              <Route path="*" element={<NotFound />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Authentication />} />
-              <Route path="/verify-email" element={<VerifyEmail />} />
-              <Route path="*" element={<NotFound />} />
-            </>
-          )}
-        </Routes>
+        {admin && admin?.emailVerified ? (
+          <Routes>
+            <Route path="/" element={<CompaniesListing />} />
+            <Route path="/register-company" element={<RegisterCompany />} />
+            <Route path="/company-profile/:id" element={<CompanyProfile />} />
+            <Route path="/edit-profile/:id" element={<EditProfile />} />
+            <Route path="/trucks-listing/:id" element={<TrucksListing />} />
+            <Route path="/truck-profile/:id" element={<TruckProfile />} />
+            <Route path="/edit-truck/:id" element={<EditTruck />} />
+            <Route path="/trailer-listing/:id" element={<TrailerListing />} />
+            <Route path="/trailer-profile/:id" element={<TrailerProfile />} />
+            <Route path="/edit-trailer/:id" element={<EditTrailer />} />
+            <Route path="/drivers-listing/:id" element={<DriversListing />} />
+            <Route path="/driver-profile/:id" element={<DriverProfile />} />
+            <Route path="/edit-driver/:id" element={<EditDriver />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/auth" element={<Authentication />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        )}
       </AnimatePresence>
     </>
   );

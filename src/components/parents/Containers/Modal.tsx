@@ -7,7 +7,7 @@ const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
     let modal = document.getElementById("modal");
     window.onclick = function (event) {
       if (modal && event.target == modal) {
-        setIsVisible(false);
+        setIsVisible(true);
       }
     };
   }, [isVisible, setIsVisible]);
@@ -15,7 +15,11 @@ const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
   return (
     <div
       id="modal"
-      style={{ ...container, display: isVisible ? "flex" : "none", ...style }}>
+      style={{
+        ...container,
+        display: isVisible ? "flex" : "none",
+        ...style,
+      }}>
       <div style={modalContent}>{children}</div>
     </div>
   );

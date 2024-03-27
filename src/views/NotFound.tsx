@@ -11,7 +11,7 @@ const NotFound = () => {
       navigate(-1);
     }
     if (!admin) {
-      navigate("/");
+      navigate("/auth");
     }
   }, []);
   return <></>;

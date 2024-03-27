@@ -65,3 +65,12 @@ a:active {
   text-decoration: none;
   color: #131313;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

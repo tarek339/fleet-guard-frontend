@@ -12,7 +12,7 @@ const MobileMenu = ({ style }: Style) => {
   const { admin } = useSelectors();
 
   const Listing = () => {
-    navigate("/listing");
+    navigate("/");
     closeSideBar();
   };
   const addNewComp = () => {
@@ -25,6 +25,7 @@ const MobileMenu = ({ style }: Style) => {
     removeAdminUser();
     resetPage();
     closeSideBar();
+    navigate("/auth");
     navigate("/");
   };
 
@@ -34,9 +35,7 @@ const MobileMenu = ({ style }: Style) => {
         {admin && (
           <>
             <div
-              style={
-                window.location.pathname === "/listing" ? focusedContent : {}
-              }
+              style={window.location.pathname === "/" ? focusedContent : {}}
               onClick={Listing}>
               listing
             </div>
@@ -54,7 +53,7 @@ const MobileMenu = ({ style }: Style) => {
           </>
         )}
         <div
-          style={window.location.pathname === "/" ? focusedContent : {}}
+          style={window.location.pathname === "/auth" ? focusedContent : {}}
           onClick={singOut}>
           {admin ? "sign out" : "Authentication"}
         </div>

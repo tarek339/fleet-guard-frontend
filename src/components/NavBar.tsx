@@ -48,9 +48,9 @@ const NavBar = () => {
     setIsHoveredAuth(false);
   };
 
-  const pathListing = window.location.pathname === "/listing";
+  const pathListing = window.location.pathname === "/";
   const pathRegister = window.location.pathname === "/register-company";
-  const pathAuth = window.location.pathname === "/";
+  const pathAuth = window.location.pathname === "/auth";
 
   return (
     <div style={navbar}>
@@ -72,7 +72,7 @@ const NavBar = () => {
                   }
                   onMouseEnter={mouseEnterHome}
                   onMouseLeave={mouseLeaveHome}
-                  onClick={() => navigate("/listing")}>
+                  onClick={() => navigate("/")}>
                   listing
                 </button>
                 <div style={divider}></div>
@@ -106,6 +106,7 @@ const NavBar = () => {
                 resetPage();
                 localStorage.removeItem("token");
                 removeAdminUser();
+                navigate("/auth");
                 navigate("/");
               }}>
               {admin ? "Sign out" : "Authentication"}

@@ -38,17 +38,20 @@ const useFormAdminActions = () => {
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        page == 1 && startLoading();
-        const res = await axios.post(
-          page == 0 ? signInPath : signUpPath,
-          values
-        );
-        dispatchAdmin(res.data.admin);
-        setTimeout(() => {
+        if (page === 0) {
+          const res = await axios.post(signInPath, values);
+          navigate("/");
+          dispatchAdmin(res.data.admin);
+          localStorage.setItem("token", res.data.token);
           resetForm();
-        }, 1500);
-        page == 0 && localStorage.setItem("token", res.data.token);
-        page == 0 && navigate("/listing");
+        } else {
+          startLoading();
+          const res = await axios.post(signUpPath, values);
+          dispatchAdmin(res.data.admin);
+          setTimeout(() => {
+            resetForm();
+          }, 1500);
+        }
       } catch (error) {
         console.log(error);
       }

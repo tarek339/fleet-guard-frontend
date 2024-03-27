@@ -12,6 +12,8 @@ export const container: React.CSSProperties = {
   backdropFilter: "blur(2px)",
   WebkitBackdropFilter: "blur(2px)",
   top: 0,
+  animationName: "fadeIn",
+  animationDuration: "0.2s",
 };
 
 export const modalContent: React.CSSProperties = {

@@ -36,9 +36,19 @@ function App() {
     }
   };
 
+  const checkConnection = async () => {
+    const res = await axios.get("/");
+    if (!res) {
+      localStorage.removeItem("company");
+      localStorage.removeItem("token");
+      removeAdminUser();
+    }
+  };
+
   useEffect(() => {
     getAdmin();
-  }, []);
+    checkConnection();
+  }, [admin]);
 
   if (adminLoading) {
     return <LoadingSpinner />;

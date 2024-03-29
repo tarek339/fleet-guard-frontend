@@ -9,8 +9,9 @@ import { differenceInDays } from "date-fns";
 
 const TrucksListing = () => {
   const [hoveredRow, setHoveredRow] = useState("");
+  const [option, setOption] = useState(5);
   const [first, setFirst] = useState(0);
-  const [last, setLast] = useState(5);
+  const [last, setLast] = useState(option);
 
   const { fetchProperties, getSingleTruck } = useFetchProperties();
   const { trucks } = useSelectors();
@@ -34,6 +35,10 @@ const TrucksListing = () => {
     }
     return 0;
   });
+
+  useEffect(() => {
+    setLast(option);
+  }, [last, option]);
 
   return (
     <Block>
@@ -133,6 +138,8 @@ const TrucksListing = () => {
         last={last}
         setFirst={setFirst}
         setLast={setLast}
+        option={option}
+        setOption={setOption}
       />
     </Block>
   );

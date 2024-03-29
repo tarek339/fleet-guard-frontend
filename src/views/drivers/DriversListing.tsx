@@ -9,9 +9,10 @@ import { differenceInDays } from "date-fns";
 import { IDriver } from "../../types/interfaces/properties";
 
 const DriversListing = () => {
+  const [option, setOption] = useState(5);
   const [hoveredRow, setHoveredRow] = useState("");
   const [first, setFirst] = useState(0);
-  const [last, setLast] = useState(5);
+  const [last, setLast] = useState(option);
   const [switchSort, setSwitchSort] = useState(true);
 
   const { fetchProperties, getSingleDriver } = useFetchProperties();
@@ -61,6 +62,10 @@ const DriversListing = () => {
       setMapDrivers(sortedByFirstName);
     } else setMapDrivers(sortedByLastName);
   }, [sortedByFirstName, sortedByLastName]);
+
+  useEffect(() => {
+    setLast(option);
+  }, [last, option]);
 
   return (
     <Block>
@@ -170,6 +175,8 @@ const DriversListing = () => {
         setLast={setLast}
         sort={`Sort by ${switchSort ? "last" : "first"} name`}
         sortFunction={changeSort}
+        option={option}
+        setOption={setOption}
       />
     </Block>
   );

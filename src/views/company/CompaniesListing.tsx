@@ -7,8 +7,9 @@ import axios from "axios";
 import { tableTd } from "../../assets/themes/styles";
 
 const CompaniesListing = () => {
+  const [option, setOption] = useState(5);
   const [first, setFirst] = useState(0);
-  const [last, setLast] = useState(5);
+  const [last, setLast] = useState(option);
   const [hoveredRow, setHoveredRow] = useState("");
 
   const { navigate } = useNavigation();
@@ -36,6 +37,10 @@ const CompaniesListing = () => {
     dispatchCompany(res.data);
     navigate(`/company-profile/${id}`);
   };
+
+  useEffect(() => {
+    setLast(option);
+  }, [last, option]);
 
   return (
     <Block>
@@ -86,6 +91,8 @@ const CompaniesListing = () => {
         last={last}
         setFirst={setFirst}
         setLast={setLast}
+        option={option}
+        setOption={setOption}
       />
     </Block>
   );

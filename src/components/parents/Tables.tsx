@@ -98,7 +98,7 @@ const Tables = ({
             <div style={{ display: "flex", gap: "10px" }}>
               <span>{first === 1 ? first : first + 1}</span>
               <span>-</span>
-              <span>{last === 5 ? last : property.length}</span>
+              <span>{option}</span>
               <span>of</span>
               <span>{property.length}</span>
             </div>

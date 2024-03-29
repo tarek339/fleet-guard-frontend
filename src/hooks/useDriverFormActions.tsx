@@ -55,7 +55,6 @@ const useDriverFormActions = () => {
           window.location.pathname === `/company-profile/${id}`
             ? await axios.post("/driver/register-driver", values)
             : await axios.put(`/driver/edit-profile/${id}`, values);
-
         dispatchDriver(res.data.driver);
 
         window.location.pathname === `/company-profile/${id}`

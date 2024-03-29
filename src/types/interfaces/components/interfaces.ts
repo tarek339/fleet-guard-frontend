@@ -182,7 +182,7 @@ export interface ISelector {
   onChange:
     | React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>
     | undefined;
-  children: JSX.Element[];
+  children: JSX.Element[] | string[];
   error: boolean;
   errorText: JSX.Element;
 }
@@ -193,8 +193,10 @@ export interface ITable {
   property: IDriver[] | IVehicle[] | ITruck[] | ICompany[];
   first: number;
   last: number;
+  sort?: React.ReactNode;
+  option: number;
+  setOption: React.Dispatch<React.SetStateAction<number>>;
   setFirst: (value: React.SetStateAction<number>) => void | undefined;
   setLast: (value: React.SetStateAction<number>) => void | undefined;
-  sort?: React.ReactNode;
   sortFunction?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }

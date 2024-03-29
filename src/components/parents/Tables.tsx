@@ -11,9 +11,11 @@ const Tables = ({
   property,
   last,
   first,
+  option,
+  sort,
   setFirst,
   setLast,
-  sort,
+  setOption,
   sortFunction,
 }: ITable) => {
   const nextPage = () => {
@@ -27,6 +29,8 @@ const Tables = ({
     setFirst((prevNum) => prevNum - 5);
     setLast((prevNum) => prevNum - 5);
   };
+
+  const rows = ["5", "10", "20"];
 
   return (
     <div
@@ -65,7 +69,6 @@ const Tables = ({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: "20px",
         }}>
         <div
           style={{ cursor: "pointer", textDecoration: "underline" }}
@@ -76,21 +79,39 @@ const Tables = ({
           <div
             style={{
               display: "flex",
-              gap: "15px",
+              gap: "30px",
+              alignItems: "center",
             }}>
-            <span>{first === 1 ? first : first + 1}</span>
-            <span>-</span>
-            <span>{last === 5 ? last : property.length}</span>
-            <span>of</span>
-            <span>{property.length}</span>
-            <MdOutlineArrowBackIos
-              onClick={prevPage}
-              style={{ cursor: first === 0 ? "" : "pointer" }}
-            />
-            <MdOutlineArrowForwardIos
-              onClick={nextPage}
-              style={{ cursor: last >= property.length ? "" : "pointer" }}
-            />
+            <select
+              style={{ width: "50px", height: "25px", cursor: "pointer" }}
+              value={option}
+              onChange={(e) => setOption(+e.target.value)}>
+              {rows.map((row, i) => {
+                return (
+                  <option key={i} value={row}>
+                    {row}
+                  </option>
+                );
+              })}
+            </select>
+
+            <div style={{ display: "flex", gap: "10px" }}>
+              <span>{first === 1 ? first : first + 1}</span>
+              <span>-</span>
+              <span>{last === 5 ? last : property.length}</span>
+              <span>of</span>
+              <span>{property.length}</span>
+            </div>
+            <div style={{ display: "flex", gap: "20px" }}>
+              <MdOutlineArrowBackIos
+                onClick={prevPage}
+                style={{ cursor: first === 0 ? "" : "pointer" }}
+              />
+              <MdOutlineArrowForwardIos
+                onClick={nextPage}
+                style={{ cursor: last >= property.length ? "" : "pointer" }}
+              />
+            </div>
           </div>
         </div>
       </div>

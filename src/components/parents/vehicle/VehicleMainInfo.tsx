@@ -3,7 +3,7 @@ import { useDispatches, useNavigation } from "../../../hooks";
 import { differenceInDays } from "date-fns";
 import { main } from "../../../assets/themes/styles/card";
 import { MdEmail } from "react-icons/md";
-import { FaWhatsappSquare } from "react-icons/fa";
+import { FaPhoneSquareAlt } from "react-icons/fa";
 import DividerVertical from "../../DividerVertical";
 import dayjs from "dayjs";
 import { colors } from "../../../assets/themes/colors/colors";
@@ -82,9 +82,9 @@ const VehicleMainInfo = ({
         <HeaderSmall title={"Contact back office"} />
         <FlexColumn gap="15px">
           <span style={main}>
-            <a className="whatsapp" href={`https://wa.me/${phone}`}>
+            <a>
               <FlexRow gap="5px" style={{ alignItems: "center" }}>
-                <FaWhatsappSquare />
+                <FaPhoneSquareAlt />
                 <>{phone}</>
               </FlexRow>
             </a>

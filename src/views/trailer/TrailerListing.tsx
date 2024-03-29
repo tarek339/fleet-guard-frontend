@@ -8,8 +8,9 @@ import { tableTd } from "../../assets/themes/styles";
 import { differenceInDays } from "date-fns";
 
 const TrailerListing = () => {
+  const [option, setOption] = useState(5);
   const [first, setFirst] = useState(0);
-  const [last, setLast] = useState(5);
+  const [last, setLast] = useState(option);
   const [hoveredRow, setHoveredRow] = useState("");
 
   const { fetchProperties, getSingleTrailer } = useFetchProperties();
@@ -34,6 +35,10 @@ const TrailerListing = () => {
     }
     return 0;
   });
+
+  useEffect(() => {
+    setLast(option);
+  }, [last, option]);
 
   return (
     <Block>
@@ -116,6 +121,8 @@ const TrailerListing = () => {
         last={last}
         setFirst={setFirst}
         setLast={setLast}
+        option={option}
+        setOption={setOption}
       />
     </Block>
   );

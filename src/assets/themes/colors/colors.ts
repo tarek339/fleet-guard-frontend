@@ -25,7 +25,7 @@ export const colors: Colors = {
     hover: "#D3D3D3",
     border: "#A9A9A9",
     placeHolder: "#A9A9A9",
-    error: "#D32F2F",
+    error: "#f44336",
     greyWhite: "#f8f8f8",
     greyLight: "#d3d3d3cc",
     borderGrey: "#F2F4F7",

@@ -28,7 +28,12 @@ const TrailerListing = () => {
     fetchProperties();
   }, []);
 
-  const arraySlice = trailers.slice(first, last);
+  const arraySlice = trailers.slice(first, last).sort((a, b) => {
+    if (a.indicator < b.indicator) {
+      return -1;
+    }
+    return 0;
+  });
 
   return (
     <Block>

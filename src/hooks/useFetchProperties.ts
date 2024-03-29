@@ -6,6 +6,7 @@ import { useDispatches, useNavigation } from ".";
 
 const useFetchProperties = () => {
   const [companies, setCompanies] = useState<ICompany[]>([]);
+
   const { id } = useParams();
   const {
     dispatchTruck,

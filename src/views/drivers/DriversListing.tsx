@@ -6,11 +6,13 @@ import { colors } from "../../assets/themes/colors/colors";
 import dayjs from "dayjs";
 import { tableTd } from "../../assets/themes/styles";
 import { differenceInDays } from "date-fns";
+import { IDriver } from "../../types/interfaces/properties";
 
 const DriversListing = () => {
   const [hoveredRow, setHoveredRow] = useState("");
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(5);
+  const [switchSort, setSwitchSort] = useState(true);
 
   const { fetchProperties, getSingleDriver } = useFetchProperties();
   const { getProfile } = useIDs();
@@ -28,7 +30,37 @@ const DriversListing = () => {
     fetchProperties();
   }, []);
 
-  const arraySlice = drivers.slice(first, last);
+  const sortByLastName = (arr: IDriver[]) => {
+    return arr.slice(first, last).sort((a, b) => {
+      if (a.lastName < b.lastName) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+  const sortByFirstName = (arr: IDriver[]) => {
+    return arr.slice(first, last).sort((a, b) => {
+      if (a.firstName < b.firstName) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+
+  const sortedByLastName = sortByLastName(drivers);
+  const sortedByFirstName = sortByFirstName(drivers);
+
+  const [mapDrivers, setMapDrivers] = useState(sortedByFirstName);
+
+  const changeSort = () => {
+    setSwitchSort(!switchSort);
+  };
+
+  useEffect(() => {
+    if (switchSort) {
+      setMapDrivers(sortedByFirstName);
+    } else setMapDrivers(sortedByLastName);
+  }, [sortedByFirstName, sortedByLastName]);
 
   return (
     <Block>
@@ -42,7 +74,7 @@ const DriversListing = () => {
           "code valid",
           "card valid",
         ]}
-        propsChildren={arraySlice.map((driver, index) => {
+        propsChildren={mapDrivers.map((driver, index) => {
           return (
             <tr
               key={driver._id}
@@ -68,7 +100,6 @@ const DriversListing = () => {
                 {index + 1}
               </td>
               <td style={tableTd}>{driver.firstName}</td>
-
               <td style={tableTd}>{driver.lastName}</td>
               <td
                 style={{
@@ -104,7 +135,6 @@ const DriversListing = () => {
                 }}>
                 {dayjs(driver.codeNumValidU).format("DD.MM.YYYY")}
               </td>
-
               <td
                 style={{
                   ...tableTd,
@@ -138,6 +168,8 @@ const DriversListing = () => {
         last={last}
         setFirst={setFirst}
         setLast={setLast}
+        sort={`Sort by ${switchSort ? "last" : "first"} name`}
+        sortFunction={changeSort}
       />
     </Block>
   );

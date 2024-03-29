@@ -69,7 +69,9 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
           <span style={main}>
             <a
               className="whatsapp"
-              href={`https://wa.me/${driver.phoneNumber}`}>
+              href={`https://wa.me/${driver.phoneNumber}`}
+              target="_blank"
+              rel="noopener noreferrer">
               <FlexRow gap="5px" style={{ alignItems: "center" }}>
                 <FaWhatsappSquare />
                 <>{driver.phoneNumber}</>

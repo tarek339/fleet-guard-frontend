@@ -28,7 +28,12 @@ const TrucksListing = () => {
     fetchProperties();
   }, []);
 
-  const arraySlice = trucks.slice(first, last);
+  const arraySlice = trucks.slice(first, last).sort((a, b) => {
+    if (a.indicator < b.indicator) {
+      return -1;
+    }
+    return 0;
+  });
 
   return (
     <Block>

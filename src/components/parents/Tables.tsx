@@ -3,22 +3,7 @@ import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "../../components/icons";
-import {
-  ICompany,
-  IDriver,
-  ITruck,
-  IVehicle,
-} from "../../types/interfaces/properties";
-
-interface ITable {
-  headers: string[];
-  propsChildren: JSX.Element[] | JSX.Element | any | undefined;
-  property: IDriver[] | IVehicle[] | ITruck[] | ICompany[];
-  first: number;
-  last: number;
-  setFirst: (value: React.SetStateAction<number>) => void | undefined;
-  setLast: (value: React.SetStateAction<number>) => void | undefined;
-}
+import { ITable } from "../../types/interfaces/components/interfaces";
 
 const Tables = ({
   headers,
@@ -28,9 +13,11 @@ const Tables = ({
   first,
   setFirst,
   setLast,
+  sort,
+  sortFunction,
 }: ITable) => {
   const nextPage = () => {
-    if (last > property.length) return;
+    if (last >= property.length) return;
     setFirst((prevNum) => prevNum + 5);
     setLast((prevNum) => prevNum + 5);
   };
@@ -76,34 +63,35 @@ const Tables = ({
         style={{
           padding: "20px",
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           alignItems: "center",
           gap: "20px",
         }}>
         <div
-          style={{
-            display: "flex",
-            gap: "10px",
-          }}>
-          <span>{first === 1 ? first : first + 1}</span>
-          <span>-</span>
-          <span>{last === 5 ? last : property.length}</span>
-          <span>of</span>
-          <span>{property.length}</span>
+          style={{ cursor: "pointer", textDecoration: "underline" }}
+          onClick={sortFunction}>
+          {sort}
         </div>
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-          }}>
-          <MdOutlineArrowBackIos
-            onClick={prevPage}
-            style={{ cursor: first === 0 ? "" : "pointer" }}
-          />
-          <MdOutlineArrowForwardIos
-            onClick={nextPage}
-            style={{ cursor: last > property.length ? "" : "pointer" }}
-          />
+        <div>
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+            }}>
+            <span>{first === 1 ? first : first + 1}</span>
+            <span>-</span>
+            <span>{last === 5 ? last : property.length}</span>
+            <span>of</span>
+            <span>{property.length}</span>
+            <MdOutlineArrowBackIos
+              onClick={prevPage}
+              style={{ cursor: first === 0 ? "" : "pointer" }}
+            />
+            <MdOutlineArrowForwardIos
+              onClick={nextPage}
+              style={{ cursor: last >= property.length ? "" : "pointer" }}
+            />
+          </div>
         </div>
       </div>
     </div>

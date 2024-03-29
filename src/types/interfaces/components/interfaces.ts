@@ -3,7 +3,7 @@ import {
   PickerChangeHandlerContext,
 } from "@mui/x-date-pickers";
 import { HandleTrailer, HandleTruck } from "../redux/slices";
-import { ITruck, IVehicle } from "../properties";
+import { ICompany, IDriver, ITruck, IVehicle } from "../properties";
 
 export interface IBlock {
   children: JSX.Element | JSX.Element[];
@@ -185,4 +185,16 @@ export interface ISelector {
   children: JSX.Element[];
   error: boolean;
   errorText: JSX.Element;
+}
+
+export interface ITable {
+  headers: string[];
+  propsChildren: JSX.Element[] | JSX.Element | any | undefined;
+  property: IDriver[] | IVehicle[] | ITruck[] | ICompany[];
+  first: number;
+  last: number;
+  setFirst: (value: React.SetStateAction<number>) => void | undefined;
+  setLast: (value: React.SetStateAction<number>) => void | undefined;
+  sort?: React.ReactNode;
+  sortFunction?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { table, tableTh } from "../../assets/themes/styles";
 import {
   MdOutlineArrowBackIos,
@@ -20,22 +21,36 @@ const Tables = ({
 }: ITable) => {
   const nextPage = () => {
     if (last >= property.length) return;
-    setFirst((prevNum) => prevNum + 5);
-    setLast((prevNum) => prevNum + 5);
+    setFirst((prevNum) => prevNum + option);
+    setLast((prevNum) => prevNum + option);
   };
 
   const prevPage = () => {
     if (first === 0) return;
-    setFirst((prevNum) => prevNum - 5);
-    setLast((prevNum) => prevNum - 5);
+    setFirst((prevNum) => prevNum - option);
+    setLast((prevNum) => prevNum - option);
   };
 
   const rows = ["5", "10", "20"];
 
+  useEffect(() => {
+    console.log("first", first);
+    console.log("last", last);
+    console.log("option", option);
+  }, [first, last, option]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newValue = +e.target.value;
+    if (newValue > option) {
+      setLast((prevNum) => prevNum + option);
+    } else setLast(newValue);
+    setOption(newValue);
+  };
+
   return (
     <div
       style={{
-        height: "390px",
+        height: "395px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -85,7 +100,7 @@ const Tables = ({
             <select
               style={{ width: "50px", height: "25px", cursor: "pointer" }}
               value={option}
-              onChange={(e) => setOption(+e.target.value)}>
+              onChange={handleChange}>
               {rows.map((row, i) => {
                 return (
                   <option key={i} value={row}>
@@ -94,11 +109,10 @@ const Tables = ({
                 );
               })}
             </select>
-
             <div style={{ display: "flex", gap: "10px" }}>
-              <span>{first === 1 ? first : first + 1}</span>
+              <span>{first + 1}</span>
               <span>-</span>
-              <span>{option}</span>
+              <span>{last}</span>
               <span>of</span>
               <span>{property.length}</span>
             </div>

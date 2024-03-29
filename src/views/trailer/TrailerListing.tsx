@@ -36,10 +36,6 @@ const TrailerListing = () => {
     return 0;
   });
 
-  useEffect(() => {
-    setLast(option);
-  }, [last, option]);
-
   return (
     <Block>
       <BackToCompProfile title={"Trailer Listing"} />

@@ -33,10 +33,6 @@ const Tables = ({
 
   const rows = ["5", "10", "20"];
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOption(+e.target.value);
-  };
-
   useEffect(() => {
     if (option === 5) {
       setFirst(0);
@@ -105,7 +101,7 @@ const Tables = ({
             <select
               style={{ width: "50px", height: "25px", cursor: "pointer" }}
               value={option}
-              onChange={handleChange}>
+              onChange={(e) => setOption(+e.target.value)}>
               {rows.map((row, i) => {
                 return (
                   <option key={i} value={row}>

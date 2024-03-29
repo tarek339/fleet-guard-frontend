@@ -50,6 +50,22 @@ function App() {
     checkConnection();
   }, [admin]);
 
+  useEffect(() => {
+    let noActivityTimeout: number | undefined;
+    const startNoActivityTimeout = () => {
+      noActivityTimeout = setTimeout(() => {
+        localStorage.removeItem("company");
+        localStorage.removeItem("token");
+        removeAdminUser();
+      }, 300000);
+      if (noActivityTimeout) {
+        clearTimeout(noActivityTimeout);
+      }
+    };
+    document.addEventListener("mousemove", startNoActivityTimeout);
+    document.addEventListener("keydown", startNoActivityTimeout);
+  }, [admin]);
+
   if (adminLoading) {
     return <LoadingSpinner />;
   }

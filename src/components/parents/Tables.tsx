@@ -33,19 +33,24 @@ const Tables = ({
 
   const rows = ["5", "10", "20"];
 
-  useEffect(() => {
-    console.log("first", first);
-    console.log("last", last);
-    console.log("option", option);
-  }, [first, last, option]);
-
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newValue = +e.target.value;
-    if (newValue > option) {
-      setLast((prevNum) => prevNum + option);
-    } else setLast(newValue);
-    setOption(newValue);
+    setOption(+e.target.value);
   };
+
+  useEffect(() => {
+    if (option === 5) {
+      setFirst(0);
+      setLast(5);
+    }
+    if (option === 10) {
+      setFirst(0);
+      setLast(10);
+    }
+    if (option === 20) {
+      setFirst(0);
+      setLast(20);
+    }
+  }, [option]);
 
   return (
     <div

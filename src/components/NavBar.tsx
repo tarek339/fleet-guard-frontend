@@ -105,6 +105,7 @@ const NavBar = () => {
               onClick={() => {
                 resetPage();
                 localStorage.removeItem("token");
+                localStorage.removeItem("company");
                 removeAdminUser();
                 navigate("/auth");
                 navigate("/");

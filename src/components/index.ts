@@ -1,6 +1,5 @@
 import NavBar from "./NavBar";
 import MobileMenu from "./MobileMenu";
-import Table from "./Table";
 import Header from "./parents/font/Header";
 import Block from "./parents/Containers/Block";
 import FlexColumn from "./parents/Containers/layouts/FlexColumn";
@@ -46,7 +45,6 @@ import LoadingSpinner from "./LoadingSpinner";
 export {
   NavBar,
   MobileMenu,
-  Table,
   Block,
   FlexColumn,
   Header,

@@ -1,8 +1,5 @@
-companies listing
-set color of company name to error and bolded if notification
 
-profiles
-set expired / about to expire date to color error and bolded
+
 
 tables
 pagination

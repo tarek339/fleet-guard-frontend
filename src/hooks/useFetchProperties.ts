@@ -18,14 +18,10 @@ const useFetchProperties = () => {
   const { navigate } = useNavigation();
 
   const fetchProperties = async () => {
-    try {
-      const res = await axios.get(`company/${id}/fetch-properties`);
-      dispatchDrivers(res.data.drivers);
-      dispatchTrucks(res.data.trucks);
-      dispatchTrailers(res.data.trailers);
-    } catch (error) {
-      console.log(error);
-    }
+    const res = await axios.get(`company/${id}/fetch-properties`);
+    dispatchDrivers(res.data.drivers);
+    dispatchTrucks(res.data.trucks);
+    dispatchTrailers(res.data.trailers);
   };
 
   const fetchData = async () => {

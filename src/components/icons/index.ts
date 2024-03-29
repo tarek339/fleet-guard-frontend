@@ -4,6 +4,8 @@ import {
   MdEmail,
   MdCheckCircle,
   MdOutlineAddCircle,
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
 } from "react-icons/md";
 import { BsSendPlusFill } from "react-icons/bs";
 import { ImSpinner8 } from "react-icons/im";
@@ -29,4 +31,6 @@ export {
   BiSolidMessageError,
   MdCheckCircle,
   MdOutlineAddCircle,
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
 };

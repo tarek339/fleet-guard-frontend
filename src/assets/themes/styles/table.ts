@@ -16,7 +16,7 @@ export const table: React.CSSProperties = {
 
 export const tableTh: React.CSSProperties = {
   borderSpacing: 0,
-  padding: "20px",
+  padding: "18px 15px 14px",
   backgroundColor: colors.table.head,
   color: colors.color.main,
   fontWeight: 400,
@@ -25,6 +25,7 @@ export const tableTh: React.CSSProperties = {
 
 export const tableTd: React.CSSProperties = {
   borderSpacing: 0,
-  padding: "20px",
+  padding: "15px",
   fontWeight: 300,
+  cursor: "pointer",
 };

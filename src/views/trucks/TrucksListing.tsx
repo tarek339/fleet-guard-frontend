@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 import { BackToCompProfile, Block, Tables } from "../../components";
 import withRestrictions from "../../hoc/withRestrictions";
-import {
-  useBreakPoints,
-  useFetchProperties,
-  useIDs,
-  useSelectors,
-} from "../../hooks";
+import { useFetchProperties, useIDs, useSelectors } from "../../hooks";
 import { colors } from "../../assets/themes/colors/colors";
 import dayjs from "dayjs";
 import { tableTd } from "../../assets/themes/styles";
+import { differenceInDays } from "date-fns";
 
 const TrucksListing = () => {
+  const [hoveredRow, setHoveredRow] = useState("");
+  const [first, setFirst] = useState(0);
+  const [last, setLast] = useState(5);
+
   const { fetchProperties, getSingleTruck } = useFetchProperties();
-  const { windowWidth } = useBreakPoints();
   const { trucks } = useSelectors();
   const { getProfile } = useIDs();
-  const [hoveredRow, setHoveredRow] = useState("");
 
   const handleMouseEnter = (id: string) => {
     setHoveredRow(id);
@@ -30,18 +28,21 @@ const TrucksListing = () => {
     fetchProperties();
   }, []);
 
+  const arraySlice = trucks.slice(first, last);
+
   return (
     <Block>
       <BackToCompProfile title={"Truck Listing"} />
       <Tables
         headers={[
+          "nr",
           "indicator",
           "type",
           "main inspection",
           "saftey inspection",
-          windowWidth >= 500 ? "tacho inspection" : "type",
+          "tacho inspection",
         ]}
-        propsChildren={trucks.map((truck, index) => {
+        propsChildren={arraySlice.map((truck, index) => {
           return (
             <tr
               key={truck._id}
@@ -61,36 +62,72 @@ const TrucksListing = () => {
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
-                    index == trucks.length - 1 ? "8px" : "0px",
+                    index === trucks.length - 1 ? "8px" : "0px",
+                  textAlign: "center",
                 }}>
-                {truck.indicator}
+                {index + 1}
               </td>
+              <td style={tableTd}>{truck.indicator}</td>
 
-              {windowWidth >= 500 ? (
-                <>
-                  <td style={tableTd}>{truck.type}</td>
-                  <td style={tableTd}>
-                    {dayjs(truck.nextHU).format("MM.YYYY")}
-                  </td>
-                  <td style={tableTd}>
-                    {dayjs(truck.nextSP).format("MM.YYYY")}
-                  </td>
-                </>
-              ) : null}
+              <td style={tableTd}>{truck.type}</td>
+              <td
+                style={{
+                  ...tableTd,
+                  color:
+                    differenceInDays(truck.nextHU, new Date()) > 31 &&
+                    differenceInDays(truck.nextHU, new Date()) < 91
+                      ? colors.color.warning
+                      : differenceInDays(truck.nextHU, new Date()) < 31
+                      ? "#f44336"
+                      : "",
+                  fontWeight:
+                    differenceInDays(truck.nextHU, new Date()) < 91 ? 400 : 300,
+                }}>
+                {dayjs(truck.nextHU).format("MM.YYYY")}
+              </td>
+              <td
+                style={{
+                  ...tableTd,
+                  color:
+                    differenceInDays(truck.nextSP, new Date()) > 31 &&
+                    differenceInDays(truck.nextSP, new Date()) < 91
+                      ? colors.color.warning
+                      : differenceInDays(truck.nextSP, new Date()) < 31
+                      ? "#f44336"
+                      : "",
+                  fontWeight:
+                    differenceInDays(truck.nextSP, new Date()) < 91 ? 400 : 300,
+                }}>
+                {dayjs(truck.nextSP).format("MM.YYYY")}
+              </td>
 
               <td
                 style={{
                   ...tableTd,
                   borderBottomRightRadius:
-                    index == trucks.length - 1 ? "8px" : "0px",
+                    index === trucks.length - 1 ? "8px" : "0px",
+                  color:
+                    differenceInDays(truck.nextTachograph, new Date()) > 31 &&
+                    differenceInDays(truck.nextTachograph, new Date()) < 91
+                      ? colors.color.warning
+                      : differenceInDays(truck.nextTachograph, new Date()) < 31
+                      ? "#f44336"
+                      : "",
+                  fontWeight:
+                    differenceInDays(truck.nextTachograph, new Date()) < 91
+                      ? 400
+                      : 300,
                 }}>
-                {windowWidth >= 500
-                  ? dayjs(truck.nextTachograph).format("MM.YYYY")
-                  : truck.type}
+                {dayjs(truck.nextTachograph).format("MM.YYYY")}
               </td>
             </tr>
           );
         })}
+        property={trucks}
+        first={first}
+        last={last}
+        setFirst={setFirst}
+        setLast={setLast}
       />
     </Block>
   );

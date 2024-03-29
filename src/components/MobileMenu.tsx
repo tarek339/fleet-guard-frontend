@@ -22,6 +22,7 @@ const MobileMenu = ({ style }: Style) => {
 
   const singOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("company");
     removeAdminUser();
     resetPage();
     closeSideBar();

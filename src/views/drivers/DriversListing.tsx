@@ -63,10 +63,6 @@ const DriversListing = () => {
     } else setMapDrivers(sortedByLastName);
   }, [sortedByFirstName, sortedByLastName]);
 
-  useEffect(() => {
-    setLast(option);
-  }, [last, option]);
-
   return (
     <Block>
       <BackToCompProfile title={"Driver Listing"} />
@@ -99,7 +95,7 @@ const DriversListing = () => {
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
-                    index === drivers.length - 1 ? "8px" : "0px",
+                    index === sortedByFirstName.length - 1 ? "8px" : "0px",
                   textAlign: "center",
                 }}>
                 {index + 1}
@@ -143,8 +139,9 @@ const DriversListing = () => {
               <td
                 style={{
                   ...tableTd,
+
                   borderBottomRightRadius:
-                    index === drivers.length - 1 ? "8px" : "0px",
+                    index === sortedByFirstName.length - 1 ? "8px" : "0px",
                   color:
                     differenceInDays(driver.driverCardNumValidU, new Date()) >
                       31 &&

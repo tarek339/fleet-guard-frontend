@@ -105,7 +105,7 @@ const MainInfo = ({ onEdit }: IMainInfo) => {
             <span style={main}>License number:</span>
             <span style={main}>License Class:</span>
             <span style={main}>Key number 95:</span>
-            <span style={main}>Driver card number:</span>
+            <span style={main}>Driver card:</span>
           </FlexColumn>
           <FlexColumn gap="15px">
             <span style={main}>{driver.licenseNum}</span>

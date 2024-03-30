@@ -36,10 +36,6 @@ const TrucksListing = () => {
     return 0;
   });
 
-  useEffect(() => {
-    setLast(option);
-  }, [last, option]);
-
   return (
     <Block>
       <BackToCompProfile title={"Truck Listing"} />
@@ -72,7 +68,7 @@ const TrucksListing = () => {
                 style={{
                   ...tableTd,
                   borderBottomLeftRadius:
-                    index === trucks.length - 1 ? "8px" : "0px",
+                    index === arraySlice.length - 1 ? "8px" : "0px",
                   textAlign: "center",
                 }}>
                 {index + 1}
@@ -115,7 +111,7 @@ const TrucksListing = () => {
                 style={{
                   ...tableTd,
                   borderBottomRightRadius:
-                    index === trucks.length - 1 ? "8px" : "0px",
+                    index === arraySlice.length - 1 ? "8px" : "0px",
                   color:
                     differenceInDays(truck.nextTachograph, new Date()) > 31 &&
                     differenceInDays(truck.nextTachograph, new Date()) < 91

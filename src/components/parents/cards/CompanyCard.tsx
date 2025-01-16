@@ -22,10 +22,10 @@ const CompanyCard = ({
   return (
     <div style={card}>
       <FlexColumn gap="20px">
-        <span style={header}>{company}</span>
+        <span style={{ ...header }}>{company}</span>
         <FlexRow gap="10px">
-          <span style={main}>{firstName}</span>
-          <span style={main}> {lastName}</span>
+          <span style={{ ...main }}>{firstName}</span>
+          <span style={{ ...main }}> {lastName}</span>
         </FlexRow>
         <span>{email}</span>
         <span>{phone}</span>
@@ -37,7 +37,7 @@ const CompanyCard = ({
           <span>{zip}</span>
           <span>{city}</span>
         </FlexRow>
-        <span style={main}>{licenseNum}</span>
+        <span style={{ ...main }}>{licenseNum}</span>
         <FlexRow gap="10px" style={{ justifyContent: "space-between" }}>
           <CardButton
             title={"edit"}

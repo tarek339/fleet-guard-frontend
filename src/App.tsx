@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     getAdmin();
     checkConnection();
-  }, [admin]);
+  }, []);
 
   useEffect(() => {
     let noActivityTimeout: number | undefined;
@@ -64,6 +64,10 @@ function App() {
     };
     document.addEventListener("mousemove", startNoActivityTimeout);
     document.addEventListener("keydown", startNoActivityTimeout);
+  }, [admin]);
+
+  useEffect(() => {
+    console.log(admin);
   }, [admin]);
 
   if (adminLoading) {

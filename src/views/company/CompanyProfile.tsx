@@ -67,8 +67,7 @@ const CompanyProfile = () => {
         <Flex
           number={767}
           gap="30px"
-          style={{ justifyContent: "space-between" }}
-        >
+          style={{ justifyContent: "space-between" }}>
           <FlexColumn gap="30px">
             <CompanyCard
               company={company?.company}

@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./hooks/redux/store.ts";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "http://localhost:4500";
 
 axios.interceptors.request.use((request) => {
   request.headers.Authorization = localStorage.getItem("token");

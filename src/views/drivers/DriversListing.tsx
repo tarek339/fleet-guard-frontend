@@ -9,7 +9,7 @@ import { differenceInDays } from "date-fns";
 import { IDriver } from "../../types/interfaces/properties";
 
 const DriversListing = () => {
-  const [option, setOption] = useState(5);
+  const [option, setOption] = useState(20);
   const [hoveredRow, setHoveredRow] = useState("");
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(option);
@@ -25,11 +25,6 @@ const DriversListing = () => {
   const handleMouseLeave = () => {
     setHoveredRow("");
   };
-
-  useEffect(() => {
-    getProfile();
-    fetchProperties();
-  }, []);
 
   const sortByLastName = (arr: IDriver[]) => {
     return arr.slice(first, last).sort((a, b) => {
@@ -57,11 +52,34 @@ const DriversListing = () => {
     setSwitchSort(!switchSort);
   };
 
+  // const keys = ["firstName", "lastName"];
+
+  // const onSearch = (value) => {
+  //   const newSearch = data.driversCopy.filter((driver) =>
+  //     keys.some((key) =>
+  //       driver[key].toLowerCase().includes(value.toLowerCase())
+  //     )
+  //   );
+  //   if (value.length > 2) {
+  //     data.setDrivers(newSearch);
+  //   }
+  //   if (!value) {
+  //     data.setDrivers(data.driversCopy);
+  //   }
+  // };
+
   useEffect(() => {
     if (switchSort) {
       setMapDrivers(sortedByFirstName);
     } else setMapDrivers(sortedByLastName);
   }, [sortedByFirstName, sortedByLastName]);
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+  useEffect(() => {
+    fetchProperties();
+  }, []);
 
   return (
     <Block>

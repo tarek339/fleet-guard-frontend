@@ -14,6 +14,7 @@ const InputField = ({
   return (
     <div style={{ width: "100%" }}>
       <CustomTextField
+        autoComplete=""
         type={type}
         name={name}
         size="small"

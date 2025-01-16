@@ -16,7 +16,11 @@ const withRestrictions = (Component: React.ComponentType) => {
       return null;
     }
 
-    return <Component />;
+    return (
+      <>
+        <Component />
+      </>
+    );
   };
 };
 
